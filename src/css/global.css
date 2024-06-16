@@ -1,0 +1,30 @@
+body.extension {
+    width: 620px;
+}
+
+body {
+    max-width: 620px;
+    padding: 8px;
+    color: black;
+}
+
+
+a, button {
+    color: black;
+    cursor: pointer;
+}
+
+/* 스크롤바의 폭 너비 */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* 스크롤바 색상 */
+    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /*스크롤바 뒷 배경 색상*/
+}

@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=webstorm,react
 
 .gitconfig
+package-lock.json
 dist.crx
 dist.pem
 dist

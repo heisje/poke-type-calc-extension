@@ -1,8 +1,8 @@
-import {usTypes} from "../../data/types.js";
+import {TYPES} from "../../data/types.js";
 
 const TypeCard = ({text, index, ...rest}) => {
     return <button {...rest}>
-        <img src={`types/${usTypes[index]}.png`} alt="Type Image"/>
+        <img src={`types/${TYPES[index]}.png`} alt="Type Image"/>
         <div>{text}</div>
     </button>
 }

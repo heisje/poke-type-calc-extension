@@ -1,11 +1,11 @@
 // 이차원 배열로 상성 가중치 정의
-import {typeChart, usTypes} from "./data/types.js";
+import {typeChart, TYPES} from "./types.js";
 
 export function calculateAtkTypeEffectiveness(isSelectedTypeSet) {
-    let effectiveness = new Array(usTypes.length).fill(1);
+    let effectiveness = new Array(TYPES.length).fill(1);
 
     isSelectedTypeSet.forEach((typeIndex) => {
-        usTypes.forEach((_, j) => {
+        TYPES.forEach((_, j) => {
             effectiveness[j] *= typeChart[typeIndex][j];
         })
     })
@@ -14,10 +14,10 @@ export function calculateAtkTypeEffectiveness(isSelectedTypeSet) {
 }
 
 export function calculateDefTypeEffectiveness(isSelectedTypeSet) {
-    const effectiveness = new Array(usTypes.length).fill(1);
+    const effectiveness = new Array(TYPES.length).fill(1);
 
     isSelectedTypeSet.forEach((typeIndex) => {
-        usTypes.forEach((_, j) => {
+        TYPES.forEach((_, j) => {
             effectiveness[j] *= typeChart[j][typeIndex];
         })
     })

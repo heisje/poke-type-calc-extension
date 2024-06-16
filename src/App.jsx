@@ -1,42 +1,25 @@
 import './css/reset.css'
-import './index.css'
-import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
-import Calculator from "./pages/Calculator.jsx";
-import Nature from "./pages/Nature.jsx";
+import './css/global.css'
+import {Navigate, Route, Routes} from "react-router-dom";
 import NotFound from "./pages/NotFound.jsx";
-import BaseStats from "./pages/BaseStats.jsx";
-import {StyledNav} from "./css/StyledNav.js";
-
+import BaseStats from "./pages/BaseStats/index.jsx";
+import Calculator from "./pages/Calculator/index.jsx";
+import Nature from "./pages/Nature/index.jsx";
+import Nav from "./components/Nav/index.jsx";
+import {Provider} from "./Provider.jsx";
 
 function App() {
-
     return (
-        <>
-            <BrowserRouter>
-                <StyledNav>
-                    <img src={`logo.png`} alt="logo"/>
-                    <div>
-                        <NavLink to="/" className={({isActive}) => (isActive ? 'active' : '')}>
-                            상성계산기
-                        </NavLink>
-                        <NavLink to="/nature" className={({isActive}) => (isActive ? 'active' : '')}>
-                            성격표
-                        </NavLink>
-                        <NavLink to="/base-stats" className={({isActive}) => (isActive ? 'active' : '')}>
-                            종족값검색
-                        </NavLink>
-                    </div>
-                </StyledNav>
-
-                <Routes>
-                    <Route path={'/'} element={<Calculator/>}/>
-                    <Route path={'/index.html'} element={<Calculator/>}/>
-                    <Route path={'/nature'} element={<Nature/>}/>
-                    <Route path={'/base-stats'} element={<BaseStats/>}/>
-                    <Route path={'*'} element={<NotFound/>}/>
-                </Routes>
-            </BrowserRouter>
-        </>
+        <Provider>
+            <Nav/>
+            <Routes>
+                <Route path={'/'} element={<Calculator/>}/>
+                <Route path="/index.html" element={<Navigate to="/"/>}/>
+                <Route path={'/nature'} element={<Nature/>}/>
+                <Route path={'/base-stats'} element={<BaseStats/>}/>
+                <Route path={'*'} element={<NotFound/>}/>
+            </Routes>
+        </Provider>
     )
 }
 
